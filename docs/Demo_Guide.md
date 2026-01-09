@@ -1,8 +1,8 @@
-# 🧪 Lab Demo Guide: Windows Adaptive Security Agent
+# Lab Demo Guide: Windows Adaptive Security Agent
 
 This guide outlines the steps to replicate the "Self-Healing" capabilities of the WASA agent in a virtual lab environment.
 
-## 📋 Prerequisites
+## Prerequisites
 * **Victim Machine:** Windows 10/11 or Server (IP: `Target_IP`)
 * **Attacker Machine:** Kali Linux or another Windows VM
 * **Network:** Both machines must be on the same isolated network (e.g., Host-Only Adapter).
@@ -47,18 +47,18 @@ We will simulate a brute-force attack against the SMB protocol. This generates t
 ## Step 3: Verify the Defense
 Watch the Windows PowerShell window. As the attack hits the 5th failure threshold:
 
-### 1. The Alert 🚨
+### 1. The Alert 
 The agent will detect the anomaly and output:
 > `[ALERT] BRUTE FORCE DETECTED: User testadmin (5 failures)`
 
-### 2. The Healing ❤️‍🩹
+### 2. The Healing 
 The agent automatically hardens the operating system configuration:
 > `[HEALING] POLICY: System hardened (Lockout set to 3)`
 
 **Proof:** Open a new terminal and run: `net accounts`.
 * *Result:* "Lockout threshold" will now be **3**.
 
-### 3. The Block 🛡️
+### 3. The Block 
 The agent permanently blocks the attacker's IP:
 > `[DEFENSE] FIREWALL: Blocked IP [Attacker_IP]`
 
